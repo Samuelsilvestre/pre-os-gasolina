@@ -1,17 +1,11 @@
-
 import pandas as pd
-import seaborn as sns
 import matplotlib.pyplot as plt
 
+PATH = '/content/pre-os-gasolina/gasolina.csv'
+df = pd.read_csv(PATH)
 
-plt.figure(figsize=(10, 6))
-sns.lineplot(data=df, x='dia', y='venda', marker='o')
-
-plt.title('Preço da gasolina por dia', fontsize=16)
-plt.xlabel('Dia', fontsize=12)
-plt.ylabel('Preço (R$)', fontsize=12)
-plt.grid(True)
-
+df.plot(kind='line', x='dia', y='venda')
+plt.title('Valor de Venda Diaria da Gasolina')
+plt.xlabel('Dia')
+plt.ylabel('Valor')
 plt.savefig('gasolina.png')
-
-plt.show()
